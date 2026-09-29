@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- LOGIN PAGE -->
+
+    <section id="loginPage" class="login-page">
+
+        <div class="login-card">
+
+            <div class="logo">
+                🎓
+            </div>
+
+            <h1>Student Portal</h1>
+
+            <p class="login-subtitle">
+                Student Management System
+            </p>
+
+
+            <form id="loginForm">
+
+                <div class="form-group">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <input
+                        id="username"
+                        type="text"
+                        placeholder="Enter username"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder="Enter password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Login
+                </button>
+
+
+                <p
+                    id="loginError"
+                    class="error-message hidden"
+                >
+                    Invalid username or password
+                </p>
+
+            </form>
+
+
+            <div class="demo-login">
+
+                <strong>Demo Login</strong>
+
+                <p>
+                    Username: admin
+                </p>
+
+                <p>
+                    Password: admin123
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- APPLICATION -->
+
+    <section
+        id="appPage"
+        class="app-page hidden"
+    >
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+
+                <span>🎓</span>
+
+                <span>
+                    EduManager
+                </span>
+
+            </div>
+
+
+            <nav>
+
+                <button
+                    class="nav-item active"
+                    data-page="dashboard"
+                >
+                    📊 Dashboard
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="register"
+                >
+                    👨‍🎓 Register Student
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="students"
+                >
+                    📋 Students
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="courses"
+                >
+                    🎓 Courses
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="reports"
+                >
+                    📈 Reports
+                </button>
+
+            </nav>
+
+
+            <button
+                id="logoutButton"
+                class="logout-button"
+            >
+                🚪 Logout
+            </button>
+
+        </aside>
+
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="main-content">
+
+
+            <!-- HEADER -->
+
+            <header class="topbar">
+
+                <div>
+
+                    <h2 id="pageTitle">
+                        Dashboard
+                    </h2>
+
+                    <p id="pageSubtitle">
+                        Welcome to Student Management System
+                    </p>
+
+                </div>
+
+
+                <div class="user-info">
+
+                    <div class="avatar">
+                        A
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Admin
+                        </strong>
+
+                        <small>
+                            Administrator
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- DASHBOARD -->
+
+            <section
+                id="dashboardPage"
+                class="content-page"
+            >
+
+
+                <div class="stats-grid">
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon blue">
+                            👨‍🎓
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Total Students
+                            </span>
+
+                            <strong id="totalStudents">
+                                120
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon green">
+                            🎓
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Active Courses
+                            </span>
+
+                            <strong>
+                                8
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon orange">
+                            📚
+                        </div>
+
+                        <div>
+
+                            <span>
+                                New Registrations
+                            </span>
+
+                            <strong id="newRegistrations">
+                                24
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon purple">
+                            📈
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Completion Rate
+                            </span>
+
+                            <strong>
+                                87%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="dashboard-grid">
+
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <h3>
+                                Recent Students
+                            </h3>
+
+                            <button
+                                class="small-button"
+                                data-page="students"
+                            >
+                                View All
+                            </button>
+
+                        </div>
+
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Name
+                                    </th>
+
+                                    <th>
+                                        Course
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="recentStudents">
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <h3>
+                                Course Overview
+                            </h3>
+
+                        </div>
+
+
+                        <div class="course-progress">
+
+                            <div class="progress-item">
+
+                                <div>
+                                    <span>Playwright</span>
+                                    <strong>78%</strong>
+                                </div>
+
+                                <div class="progress">
+                                    <div style="width:78%"></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="progress-item">
+
+                                <div>
+                                    <span>Python</span>
+                                    <strong>65%</strong>
+                                </div>
+
+                                <div class="progress">
+                                    <div style="width:65%"></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="progress-item">
+
+                                <div>
+                                    <span>JavaScript</span>
+                                    <strong>82%</strong>
+                                </div>
+
+                                <div class="progress">
+                                    <div style="width:82%"></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="progress-item">
+
+                                <div>
+                                    <span>MLOps</span>
+                                    <strong>54%</strong>
+                                </div>
+
+                                <div class="progress">
+                                    <div style="width:54%"></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- REGISTER -->
+
+            <section
+                id="registerPage"
+                class="content-page hidden"
+            >
+
+                <div class="panel form-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>
+                                Register New Student
+                            </h3>
+
+                            <p>
+                                Enter student information below
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <form id="studentForm">
+
+
+                        <div class="form-row">
+
+
+                            <div class="form-group">
+
+                                <label for="studentName">
+                                    Full Name
+                                </label>
+
+                                <input
+                                    id="studentName"
+                                    type="text"
+                                    placeholder="Enter full name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="studentEmail">
+                                    Email
+                                </label>
+
+                                <input
+                                    id="studentEmail"
+                                    type="email"
+                                    placeholder="Enter email"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-row">
+
+
+                            <div class="form-group">
+
+                                <label for="studentPhone">
+                                    Phone
+                                </label>
+
+                                <input
+                                    id="studentPhone"
+                                    type="tel"
+                                    placeholder="Enter phone number"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="studentCourse">
+                                    Course
+                                </label>
+
+                                <select
+                                    id="studentCourse"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select Course
+                                    </option>
+
+                                    <option>
+                                        Playwright
+                                    </option>
+
+                                    <option>
+                                        Python
+                                    </option>
+
+                                    <option>
+                                        JavaScript
+                                    </option>
+
+                                    <option>
+                                        MLOps
+                                    </option>
+
+                                    <option>
+                                        React
+                                    </option>
+
+                                    <option>
+                                        Data Analytics
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-row">
+
+
+                            <div class="form-group">
+
+                                <label for="studentCity">
+                                    City
+                                </label>
+
+                                <input
+                                    id="studentCity"
+                                    type="text"
+                                    placeholder="Enter city"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="studentStatus">
+                                    Status
+                                </label>
+
+                                <select id="studentStatus">
+
+                                    <option>
+                                        Active
+                                    </option>
+
+                                    <option>
+                                        Pending
+                                    </option>
+
+                                    <option>
+                                        Completed
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-actions">
+
+                            <button
+                                type="reset"
+                                class="secondary-button"
+                            >
+                                Clear
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="primary-button"
+                            >
+                                Register Student
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+
+                    <div
+                        id="registrationSuccess"
+                        class="success-message hidden"
+                    >
+                        ✅ Student registered successfully!
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- STUDENTS -->
+
+            <section
+                id="studentsPage"
+                class="content-page hidden"
+            >
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>
+                                Student Records
+                            </h3>
+
+                            <p>
+                                Manage registered students
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="primary-button"
+                            data-page="register"
+                        >
+                            + Add Student
+                        </button>
+
+                    </div>
+
+
+                    <div class="search-bar">
+
+                        <input
+                            id="searchInput"
+                            type="text"
+                            placeholder="🔍 Search students..."
+                        >
+
+                        <select id="courseFilter">
+
+                            <option value="">
+                                All Courses
+                            </option>
+
+                            <option>
+                                Playwright
+                            </option>
+
+                            <option>
+                                Python
+                            </option>
+
+                            <option>
+                                JavaScript
+                            </option>
+
+                            <option>
+                                MLOps
+                            </option>
+
+                            <option>
+                                React
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <table class="student-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    ID
+                                </th>
+
+                                <th>
+                                    Student
+                                </th>
+
+                                <th>
+                                    Email
+                                </th>
+
+                                <th>
+                                    Course
+                                </th>
+
+                                <th>
+                                    City
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="studentTableBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- COURSES -->
+
+            <section
+                id="coursesPage"
+                class="content-page hidden"
+            >
+
+                <div class="course-grid">
+
+
+                    <div class="course-card">
+
+                        <div class="course-icon">
+                            🎭
+                        </div>
+
+                        <h3>
+                            Playwright
+                        </h3>
+
+                        <p>
+                            Web automation and end-to-end testing.
+                        </p>
+
+                        <span>
+                            32 Students
+                        </span>
+
+                    </div>
+
+
+                    <div class="course-card">
+
+                        <div class="course-icon">
+                            🐍
+                        </div>
+
+                        <h3>
+                            Python
+                        </h3>
+
+                        <p>
+                            Programming and automation with Python.
+                        </p>
+
+                        <span>
+                            45 Students
+                        </span>
+
+                    </div>
+
+
+                    <div class="course-card">
+
+                        <div class="course-icon">
+                            JS
+                        </div>
+
+                        <h3>
+                            JavaScript
+                        </h3>
+
+                        <p>
+                            Modern JavaScript development.
+                        </p>
+
+                        <span>
+                            28 Students
+                        </span>
+
+                    </div>
+
+
+                    <div class="course-card">
+
+                        <div class="course-icon">
+                            ⚙️
+                        </div>
+
+                        <h3>
+                            MLOps
+                        </h3>
+
+                        <p>
+                            Machine learning deployment and monitoring.
+                        </p>
+
+                        <span>
+                            18 Students
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- REPORTS -->
+
+            <section
+                id="reportsPage"
+                class="content-page hidden"
+            >
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>
+                                Student Performance Report
+                            </h3>
+
+                            <p>
+                                Monthly student statistics
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="report-grid">
+
+                        <div class="report-number">
+
+                            <span>
+                                Total Enrolled
+                            </span>
+
+                            <strong>
+                                120
+                            </strong>
+
+                        </div>
+
+
+                        <div class="report-number">
+
+                            <span>
+                                Completed
+                            </span>
+
+                            <strong>
+                                74
+                            </strong>
+
+                        </div>
+
+
+                        <div class="report-number">
+
+                            <span>
+                                In Progress
+                            </span>
+
+                            <strong>
+                                38
+                            </strong>
+
+                        </div>
+
+
+                        <div class="report-number">
+
+                            <span>
+                                Pending
+                            </span>
+
+                            <strong>
+                                8
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="large-chart">
+
+                        <div class="bar" style="height:60%">
+                            <span>Jan</span>
+                        </div>
+
+                        <div class="bar" style="height:75%">
+                            <span>Feb</span>
+                        </div>
+
+                        <div class="bar" style="height:55%">
+                            <span>Mar</span>
+                        </div>
+
+                        <div class="bar" style="height:90%">
+                            <span>Apr</span>
+                        </div>
+
+                        <div class="bar" style="height:70%">
+                            <span>May</span>
+                        </div>
+
+                        <div class="bar" style="height:95%">
+                            <span>Jun</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </section>
+
+
+    <!-- EDIT MODAL -->
+
+    <div
+        id="editModal"
+        class="modal hidden"
+    >
+
+        <div class="modal-card">
+
+            <h2>
+                Edit Student
+            </h2>
+
+            <input
+                id="editName"
+                placeholder="Name"
+            >
+
+            <input
+                id="editEmail"
+                placeholder="Email"
+            >
+
+            <div class="modal-actions">
+
+                <button
+                    id="cancelEdit"
+                    class="secondary-button"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    id="saveEdit"
+                    class="primary-button"
+                >
+                    Save Changes
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
